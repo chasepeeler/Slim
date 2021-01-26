@@ -1404,6 +1404,10 @@ class Slim
      */
     public static function handleErrors($errno, $errstr = '', $errfile = '', $errline = '')
     {
+		if(false !== stripos($errstr,"undefined array key")){
+			return true;
+		}
+		
         if (!($errno & error_reporting())) {
             return;
         }
